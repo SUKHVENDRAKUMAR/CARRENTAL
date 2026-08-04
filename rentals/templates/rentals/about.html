@@ -1,0 +1,96 @@
+{% extends 'rentals/base.html' %}
+{% load static %}
+
+{% block title %}About Us | ApexDrive{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- About Header -->
+    <div class="text-center mb-5 mt-4 text-white">
+        <span class="badge bg-accent-glow text-white px-3 py-2 mb-3 rounded-pill text-uppercase">Who We Are</span>
+        <h1 class="display-4 fw-extrabold mb-3">Redefining Car Rentals</h1>
+        <p class="lead max-w-2xl mx-auto text-light-muted">We bridge the gap between car owners and travelers. Rent cars directly with no middleman, hidden fees, or hassle.</p>
+    </div>
+
+    <!-- About Content Cards -->
+    <div class="row align-items-center mb-5 g-5 text-white">
+        <div class="col-lg-6">
+            <h2 class="fw-bold mb-4">Our Unique Platform</h2>
+            <p class="text-light-muted">ApexDrive is a peer-to-peer car rental platform designed to give hosts full control over their listings and renters an easy, direct way to contact them. Our platform does not charge exorbitant brokerage fees or introduce complex checkouts.</p>
+            <p class="text-light-muted">Instead, you register, list your vehicle, add your details, and post direct contact routes (calls and WhatsApp). Potential renters talk directly to you to finalize arrangements, rental duration, and delivery methods.</p>
+            <div class="row g-3 mt-2">
+                <div class="col-sm-6">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-patch-check-fill text-accent fs-4 me-2"></i>
+                        <span>Direct Communication</span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-patch-check-fill text-accent fs-4 me-2"></i>
+                        <span>Zero Hidden Charges</span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-patch-check-fill text-accent fs-4 me-2"></i>
+                        <span>Verified Host Accounts</span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-patch-check-fill text-accent fs-4 me-2"></i>
+                        <span>Flexible Arrangements</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <!-- Decorative Visual Container -->
+            <div class="p-5 rounded-4 bg-glass-dark border border-secondary border-opacity-10 position-relative overflow-hidden">
+                <div class="visual-glow-circle"></div>
+                <h4 class="fw-bold mb-4 position-relative text-accent">How It Works</h4>
+                <div class="steps-timeline position-relative">
+                    <div class="d-flex mb-4">
+                        <div class="step-num me-3">1</div>
+                        <div>
+                            <h5 class="fw-bold">Create Account</h5>
+                            <p class="text-light-muted mb-0 small">Register in seconds with basic personal information.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="step-num me-3">2</div>
+                        <div>
+                            <h5 class="fw-bold">Set Up Car Profile</h5>
+                            <p class="text-light-muted mb-0 small">Upload your car photo, specify rate details, and input your call/WhatsApp link.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="step-num me-3">3</div>
+                        <div>
+                            <h5 class="fw-bold">Connect and Rent</h5>
+                            <p class="text-light-muted mb-0 small">Renters view your car on the home page and reach out to you instantly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Developer Information Section -->
+    <div class="row justify-content-center mt-5 pt-4">
+        <div class="col-lg-8 text-center text-white">
+            <div class="p-4 p-md-5 rounded-4 bg-glass-dark border border-secondary border-opacity-10 shadow-lg position-relative overflow-hidden">
+                <span class="badge bg-accent-glow text-white px-3 py-2 mb-3 rounded-pill text-uppercase">The Creator</span>
+                <h3 class="fw-bold mb-2">Developed By</h3>
+                <h2 class="fw-extrabold mb-3 text-accent glow-text-purple">Sukhvendra Kumar</h2>
+                <p class="text-light-muted max-w-2xl mx-auto mb-4">
+                    ApexDrive was conceptualized and developed by Sukhvendra Kumar as a premium peer-to-peer car rental platform. Built with Django and modern glassmorphic web aesthetics, this project showcases clean database relationships, secure SMTP authentication flow, dynamic visual car showcase, and full dark/light theme versatility.
+                </p>
+                <div class="d-flex gap-3 justify-content-center">
+                    <a href="mailto:yadavsukhvendra9@gmail.com" class="btn btn-accent px-4 py-2 rounded-pill small"><i class="bi bi-envelope-fill me-2"></i>Email Sukhvendra</a>
+                    <a href="https://github.com" target="_blank" class="btn btn-outline-light px-4 py-2 rounded-pill small"><i class="bi bi-github me-2"></i>GitHub Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

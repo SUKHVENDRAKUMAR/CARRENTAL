@@ -1,0 +1,47 @@
+{% extends 'rentals/base.html' %}
+{% load static %}
+
+{% block title %}{{ title }} | ApexDrive{% endblock %}
+
+{% block content %}
+<div class="container py-5 text-white">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <!-- Form Card -->
+            <div class="card bg-glass-dark border border-secondary border-opacity-10 shadow-lg text-white rounded-4 p-4 p-md-5">
+                <div class="d-flex align-items-center mb-4">
+                    <a href="{% url 'profile' %}" class="btn btn-outline-light btn-sm rounded-pill me-3 px-3 py-2">
+                        <i class="bi bi-arrow-left"></i> Back to Fleet
+                    </a>
+                    <h3 class="fw-bold mb-0">{{ title }}</h3>
+                </div>
+                
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    {% for field in form %}
+                        <div class="mb-3">
+                            <label class="form-label text-light-muted small">{{ field.label }}</label>
+                            {{ field }}
+                            {% if field.errors %}
+                                {% for error in field.errors %}
+                                    <div class="text-danger small mt-1" style="font-size: 0.8rem;">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                            {% if field.help_text %}
+                                <div class="text-light-muted small mt-1" style="font-size: 0.75rem;">{{ field.help_text|safe }}</div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-accent py-3 rounded-pill fw-bold">
+                            <i class="bi bi-save me-2"></i> {{ button_text }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

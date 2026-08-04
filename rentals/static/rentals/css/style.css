@@ -1,0 +1,667 @@
+/* Modern Premium Design System */
+
+:root {
+    --bg-dark-primary: #fff0f3;
+    --bg-dark-secondary: #ffffff;
+    --bg-gradient-end: #ffe3e8;
+    --bg-glass-dark: rgba(255, 255, 255, 0.75);
+    --bg-glass-light: rgba(255, 42, 133, 0.04);
+    
+    --accent-purple: #e91e63;
+    --accent-purple-glow: rgba(233, 30, 99, 0.3);
+    --accent-cyan: #ff60ad;
+    --accent-cyan-glow: rgba(255, 96, 173, 0.25);
+    --whatsapp-green: #25d366;
+    --whatsapp-green-hover: #20ba5a;
+    
+    --text-white: #111111;
+    --text-muted: #555555;
+    --text-light-muted: #666666;
+    
+    --border-glass: rgba(233, 30, 99, 0.15);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+    --bg-dark-primary: #f8fafc;
+    --bg-dark-secondary: #ffffff;
+    --bg-gradient-end: #f1f5f9;
+    --bg-glass-dark: rgba(255, 255, 255, 0.8);
+    --bg-glass-light: rgba(15, 23, 42, 0.05);
+    
+    --accent-purple: #d81b60;
+    --accent-purple-glow: rgba(216, 27, 96, 0.2);
+    --accent-cyan: #ff4081;
+    --accent-cyan-glow: rgba(255, 64, 129, 0.15);
+    
+    --text-white: #111111;
+    --text-muted: #475569;
+    --text-light-muted: #64748b;
+    
+    --border-glass: rgba(15, 23, 42, 0.08);
+}
+
+/* Base Body Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, var(--bg-dark-primary) 0%, var(--bg-gradient-end) 100%);
+    color: var(--text-white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .brand-text {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Glassmorphism Styles */
+.glass-nav {
+    background: var(--bg-glass-dark);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.bg-glass-dark {
+    background: var(--bg-glass-dark);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-glass) !important;
+}
+
+/* Brand Logo */
+.brand-text {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.brand-icon {
+    font-size: 1.4rem;
+    color: var(--accent-cyan);
+    filter: drop-shadow(0 0 8px var(--accent-cyan-glow));
+}
+
+.accent-text {
+    color: var(--accent-purple);
+    background: linear-gradient(45deg, var(--accent-purple) 30%, var(--accent-cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Nav Link Hover States */
+.navbar-nav .nav-link {
+    font-weight: 500;
+    color: var(--text-muted) !important;
+    transition: var(--transition-smooth);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.navbar-nav .nav-link:hover, 
+.navbar-nav .nav-link.active {
+    color: var(--text-white) !important;
+    background: var(--bg-glass-light);
+}
+
+.nav-divider {
+    height: 24px;
+    width: 1px;
+    background-color: var(--border-glass);
+}
+
+.text-light-muted {
+    color: var(--text-muted);
+}
+
+/* Buttons */
+.btn-accent {
+    background: linear-gradient(135deg, var(--accent-purple) 0%, #c2185b 100%) !important;
+    color: #ffffff !important;
+    border: none;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 15px var(--accent-purple-glow);
+}
+
+.btn-accent:hover {
+    background: linear-gradient(135deg, #ff60ad 0%, var(--accent-purple) 100%) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--accent-purple-glow);
+}
+
+.btn-whatsapp {
+    background-color: var(--whatsapp-green);
+    color: var(--text-white) !important;
+    border: none;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.btn-whatsapp:hover {
+    background-color: var(--whatsapp-green-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
+.btn-outline-light:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+}
+
+.btn-contact {
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+/* Hero Section styling */
+.hero-section {
+    background: radial-gradient(circle at top right, rgba(157, 78, 221, 0.15), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(0, 245, 212, 0.08), transparent 45%);
+    border-bottom: 1px solid var(--border-glass);
+    padding: 8rem 0 6rem 0;
+}
+
+.fw-extrabold {
+    font-weight: 800;
+}
+
+.accent-gradient {
+    background: linear-gradient(90deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bg-accent-glow {
+    background: rgba(157, 78, 221, 0.2);
+    border: 1px solid rgba(157, 78, 221, 0.4);
+    box-shadow: 0 0 15px rgba(157, 78, 221, 0.1);
+}
+
+.max-w-2xl {
+    max-width: 42rem;
+}
+
+.max-w-md {
+    max-width: 30rem;
+}
+
+.max-w-xs {
+    max-width: 20rem;
+}
+
+/* Listings - Car Cards */
+.car-card {
+    transition: var(--transition-smooth);
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 245, 212, 0.25) !important;
+    box-shadow: 0 10px 25px rgba(0, 245, 212, 0.08) !important;
+}
+
+.car-img-wrapper {
+    height: 220px;
+    overflow: hidden;
+    background-color: var(--bg-dark-primary) !important;
+}
+
+.car-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.car-img-preview {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.car-card:hover .car-img {
+    transform: scale(1.05);
+}
+
+.car-price-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border-radius: 30px;
+    border: 1px solid var(--border-glass);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.text-accent-cyan {
+    color: var(--accent-cyan);
+}
+
+.no-img-placeholder {
+    height: 100%;
+    width: 100%;
+}
+
+/* User avatar helper */
+.user-avatar-sm {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+}
+
+.card-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Form Styles */
+.form-control, .form-select {
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: var(--text-white);
+    padding: 0.75rem 1rem;
+    transition: var(--transition-smooth);
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 10px var(--accent-purple-glow);
+    color: var(--text-white);
+}
+
+.form-control::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+}
+
+/* Auth Cards & Profiles */
+.auth-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+}
+
+.accent-link {
+    color: var(--accent-purple);
+    transition: var(--transition-smooth);
+}
+
+.accent-link:hover {
+    color: var(--text-white);
+    text-shadow: 0 0 8px rgba(233, 30, 99, 0.5);
+}
+
+/* Border Dashed for profile upload empty state */
+.border-dashed {
+    border-style: dashed !important;
+}
+
+/* Alert Notification Animations */
+.custom-alert {
+    background: rgba(18, 14, 34, 0.9) !important;
+    border-left: 4px solid var(--accent-purple) !important;
+    animation: slideInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.alert-success {
+    border-left: 4px solid var(--whatsapp-green) !important;
+}
+
+.alert-danger {
+    border-left: 4px solid #ef4444 !important;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Steps Timeline in About Page */
+.step-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(157, 78, 221, 0.15);
+    border: 1px solid var(--accent-purple);
+    color: var(--accent-cyan);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(0, 245, 212, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Footer layout details */
+.bg-dark-gradient {
+    background: linear-gradient(180deg, var(--bg-dark-primary) 0%, var(--bg-gradient-end) 100%) !important;
+}
+
+.footer-link {
+    transition: var(--transition-smooth);
+}
+
+.footer-link:hover {
+    color: var(--text-white) !important;
+    padding-left: 4px;
+}
+
+.social-icon {
+    font-size: 1.1rem;
+    transition: var(--transition-smooth);
+}
+
+.social-icon:hover {
+    color: var(--accent-cyan) !important;
+}
+
+/* Ambient glow background orbs */
+.orb-1 {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(157, 78, 221, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.orb-2 {
+    position: absolute;
+    bottom: 15%;
+    right: 2%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 245, 212, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Feature Cards */
+.feature-card {
+    background: var(--bg-glass-dark);
+    border: 1px solid var(--border-glass);
+    transition: var(--transition-smooth);
+    border-radius: 16px;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(157, 78, 221, 0.3) !important;
+    box-shadow: 0 10px 30px rgba(157, 78, 221, 0.08) !important;
+}
+
+.feature-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    background: rgba(157, 78, 221, 0.08);
+    color: var(--accent-purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: var(--transition-smooth);
+}
+
+.feature-card:hover .feature-icon-wrapper {
+    background: linear-gradient(135deg, var(--accent-purple) 0%, #7b2cbf 100%);
+    color: var(--text-white);
+    transform: rotate(5deg) scale(1.05);
+}
+
+/* Stats Counter Badge */
+.stat-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.stat-box:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(0, 245, 212, 0.2);
+}
+
+/* Custom interactive buttons / link effects */
+.hover-white:hover {
+    color: var(--text-white) !important;
+}
+
+.glow-text-cyan {
+    text-shadow: 0 0 10px var(--accent-cyan-glow);
+}
+
+.glow-text-purple {
+    text-shadow: 0 0 10px var(--accent-purple-glow);
+}
+
+/* Hero Car Showcase Carousel */
+.hero-carousel-container {
+    background: var(--bg-glass-dark);
+    border: 1px solid var(--border-glass);
+    border-radius: 24px;
+    padding: 0.75rem;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.hero-carousel-container:hover {
+    border-color: rgba(0, 245, 212, 0.2) !important;
+    box-shadow: 0 25px 50px rgba(0, 245, 212, 0.08);
+}
+
+.hero-carousel .carousel-item {
+    height: 380px;
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-carousel .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-carousel .carousel-item.active img {
+    transform: scale(1.06);
+}
+
+.carousel-caption-glass {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    background: rgba(10, 7, 18, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-glass);
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    text-align: left;
+    z-index: 10;
+}
+
+.carousel-indicators-custom {
+    bottom: 25px !important;
+    margin-bottom: 0 !important;
+}
+
+.carousel-indicators-custom [data-bs-target] {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    background-color: var(--accent-cyan) !important;
+    border: none !important;
+    opacity: 0.4 !important;
+    margin: 0 4px !important;
+    transition: var(--transition-smooth);
+}
+
+.carousel-indicators-custom .active {
+    opacity: 1 !important;
+    width: 18px !important;
+    border-radius: 3px !important;
+}
+
+/* Global overrides for Bootstrap elements to support the light-background design */
+.text-white {
+    color: var(--text-white) !important;
+}
+
+.text-light-muted {
+    color: var(--text-muted) !important;
+}
+
+.bg-dark {
+    background-color: var(--bg-dark-secondary) !important;
+    color: var(--text-white) !important;
+}
+
+.border-secondary {
+    border-color: var(--border-glass) !important;
+}
+
+.btn-outline-light {
+    border-color: var(--text-white) !important;
+    color: var(--text-white) !important;
+}
+
+.btn-outline-light:hover {
+    background-color: var(--text-white) !important;
+    color: var(--bg-dark-secondary) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--text-muted) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--text-white) !important;
+    background: var(--bg-glass-light);
+}
+
+.navbar-dark .navbar-brand {
+    color: var(--text-white) !important;
+}
+
+.carousel-caption-glass {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.carousel-caption-glass h5 {
+    color: #110e1a !important;
+}
+
+.stat-box {
+    background: rgba(0, 0, 0, 0.02) !important;
+    border-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.bg-glass-dark {
+    background: var(--bg-glass-dark) !important;
+}
+
+.footer {
+    background: linear-gradient(180deg, var(--bg-dark-primary) 0%, var(--bg-gradient-end) 100%) !important;
+    color: var(--text-muted) !important;
+}
+
+.footer .brand-text {
+    color: var(--text-white) !important;
+}
+
+.footer-link:hover {
+    color: var(--accent-purple) !important;
+}
+
+.btn-close {
+    filter: invert(1);
+}
+
+.modal-content {
+    background: var(--bg-dark-secondary) !important;
+    color: var(--text-white) !important;
+}
+
+.modal-header,
+.modal-footer {
+    border-color: var(--border-glass) !important;
+}
+
+.modal-header .btn-close {
+    filter: invert(1);
+}
+
+/* Home Page Specific Customizations */
+body.home-page {
+    background: linear-gradient(135deg, #e0f7fa 0%, #e8eaf6 100%) !important; /* Soft Cyan to Soft Indigo */
+}
+
+[data-theme="light"] body.home-page {
+    background: linear-gradient(135deg, #e3f2fd 0%, #e8eaf6 100%) !important;
+}
+
+/* Home Page specific glowing background orbs */
+body.home-page .orb-1 {
+    background: radial-gradient(circle, rgba(0, 245, 212, 0.15) 0%, transparent 70%) !important;
+}
+
+body.home-page .orb-2 {
+    background: radial-gradient(circle, rgba(157, 78, 221, 0.12) 0%, transparent 70%) !important;
+}
+
+/* Other pages glowing background orbs (Pink theme) */
+body:not(.home-page) .orb-1 {
+    background: radial-gradient(circle, rgba(233, 30, 99, 0.18) 0%, transparent 70%) !important;
+}
+
+body:not(.home-page) .orb-2 {
+    background: radial-gradient(circle, rgba(255, 96, 173, 0.14) 0%, transparent 70%) !important;
+}
+
+
+

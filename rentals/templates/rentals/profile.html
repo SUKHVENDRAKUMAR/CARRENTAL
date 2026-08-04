@@ -1,0 +1,131 @@
+{% extends 'rentals/base.html' %}
+{% load static %}
+
+{% block title %}My Profile | ApexDrive{% endblock %}
+
+{% block content %}
+<div class="container py-5 text-white">
+    <!-- Page Header -->
+    <div class="row mb-5 mt-3">
+        <div class="col">
+            <h1 class="fw-extrabold mb-1">Account & Fleet Dashboard</h1>
+            <p class="text-light-muted">View your account profile details and manage your registered vehicles.</p>
+        </div>
+    </div>
+
+    <div class="row g-5">
+        <!-- Left Column: User Personal Information -->
+        <div class="col-lg-4">
+            <div class="card bg-glass-dark border border-secondary border-opacity-10 shadow-lg text-white rounded-4 p-4 text-center">
+                <!-- User Avatar -->
+                <div class="user-avatar-sm mx-auto mb-3 bg-gradient text-dark fw-bold d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; font-size: 2.2rem; border-radius: 50%;">
+                    {{ request.user.username|make_list|first|upper }}
+                </div>
+                
+                <h3 class="fw-bold mb-1">{{ request.user.first_name }} {{ request.user.last_name }}</h3>
+                <p class="text-accent-cyan small mb-4">@{{ request.user.username }}</p>
+                
+                <div class="text-start border-top border-secondary border-opacity-20 pt-4">
+                    <div class="mb-3">
+                        <label class="text-light-muted small d-block mb-1">Email Address</label>
+                        <span class="fw-semibold"><i class="bi bi-envelope-fill text-accent-cyan me-2"></i>{{ request.user.email }}</span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="text-light-muted small d-block mb-1">Username</label>
+                        <span class="fw-semibold"><i class="bi bi-person-fill text-accent-cyan me-2"></i>{{ request.user.username }}</span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="text-light-muted small d-block mb-1">Member Since</label>
+                        <span class="fw-semibold"><i class="bi bi-calendar-event-fill text-accent-cyan me-2"></i>{{ request.user.date_joined|date:"d M Y" }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: My Car Fleet -->
+        <div class="col-lg-8">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h3 class="fw-bold mb-0"><i class="bi bi-car-front-fill text-accent me-2"></i>My Car Fleet</h3>
+                <a href="{% url 'add_car' %}" class="btn btn-accent px-4 py-2 rounded-pill fw-bold btn-sm">
+                    <i class="bi bi-plus-circle-fill me-2"></i>List a New Car
+                </a>
+            </div>
+
+            <!-- Listings Grid -->
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                {% for car in profiles %}
+                    <div class="col">
+                        <div class="card h-100 car-card shadow-lg border-0 bg-glass-dark overflow-hidden">
+                            <!-- Image Wrapper -->
+                            <div class="car-img-wrapper position-relative">
+                                {% if car.car_image %}
+                                    <img src="{{ car.car_image.url }}" class="card-img-top car-img-preview" alt="{{ car.car_name }}">
+                                {% else %}
+                                    <div class="no-img-placeholder d-flex flex-column align-items-center justify-content-center bg-dark text-muted">
+                                        <i class="bi bi-image fs-1 mb-2"></i>
+                                        <span>No Image Uploaded</span>
+                                    </div>
+                                {% endif %}
+                                <div class="car-price-badge py-2 px-3">
+                                    <i class="bi bi-patch-check-fill text-accent-cyan me-1"></i> Live
+                                </div>
+                            </div>
+                            
+                            <!-- Card Body -->
+                            <div class="card-body p-4 text-white d-flex flex-column">
+                                <h4 class="card-title fw-bold mb-2">{{ car.car_name }}</h4>
+                                
+                                <p class="card-text text-light-muted flex-grow-1 card-description mb-4">
+                                    {{ car.car_details|truncatewords:15 }}
+                                </p>
+                                
+                                <!-- Actions -->
+                                <div class="d-flex gap-2 mt-auto">
+                                    <a href="{% url 'edit_car' car.id %}" class="btn btn-outline-light flex-fill py-2 d-flex align-items-center justify-content-center btn-sm">
+                                        <i class="bi bi-pencil-square me-2"></i> Edit
+                                    </a>
+                                    <button type="button" class="btn btn-outline-danger flex-fill py-2 d-flex align-items-center justify-content-center btn-sm" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal-{{ car.id }}">
+                                        <i class="bi bi-trash3-fill me-2"></i> Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delete Confirmation Modal for each car -->
+                    <div class="modal fade" id="deleteConfirmModal-{{ car.id }}" tabindex="-1" aria-labelledby="deleteConfirmModalLabel-{{ car.id }}" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content bg-glass-dark border border-secondary border-opacity-10 text-white rounded-4 shadow-lg">
+                                <div class="modal-header border-bottom border-secondary border-opacity-10">
+                                    <h5 class="modal-title fw-bold" id="deleteConfirmModalLabel-{{ car.id }}">Delete Listing</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-start">
+                                    <p>Are you sure you want to delete your car listing <strong>"{{ car.car_name }}"</strong>? This action cannot be undone.</p>
+                                </div>
+                                <div class="modal-footer border-top border-secondary border-opacity-10">
+                                    <button type="button" class="btn btn-outline-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+                                    <form method="POST" action="{% url 'delete_car' car.id %}" class="d-inline">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger rounded-pill px-4 fw-bold">Yes, Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <!-- Empty Fleet State -->
+                    <div class="col-12 text-center py-5">
+                        <div class="empty-state-container p-5 bg-glass-dark rounded-4 text-white">
+                            <i class="bi bi-car-front-fill display-2 text-muted mb-4 opacity-50"></i>
+                            <h3 class="fw-bold mb-2">No Cars Listed Yet</h3>
+                            <p class="text-light-muted mb-4 max-w-md mx-auto">You haven't listed any cars under your account yet. Add your first car listing to start renting!</p>
+                            <a href="{% url 'add_car' %}" class="btn btn-accent px-4 py-3 rounded-pill fw-bold"><i class="bi bi-plus-circle me-2"></i>List Your First Car</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
